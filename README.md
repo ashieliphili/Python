@@ -1,1 +1,1 @@
-An email simulator example
+Python examples
