@@ -1,0 +1,40 @@
+class HashTable:
+    def __init__(self):
+        self.collection={}
+    def hash(self,inp:str):
+        code=0
+        for i in inp:
+            code+=ord(i)
+        return code
+    def add(self,key,value):
+        hash_val=self.hash(key)
+        if hash_val in self.collection:
+            self.collection[hash_val][key]=value
+        else:
+            self.collection[hash_val]={key:value}
+        return self.collection
+    def remove(self,key):
+        hash_val=self.hash(key)
+        if hash_val in self.collection:
+            if key in self.collection[hash_val]:
+                del self.collection[hash_val][key]
+
+    def lookup(self,key):
+        hash_val=self.hash(key)
+        if hash_val in self.collection:
+            if key in self.collection[hash_val]:
+                return self.collection[hash_val][key]
+        else:
+            return None
+
+"""
+HashTable().hash('golf') should return 424.
+HashTable().add('golf', 'sport') should add the key-value pair to the collection at key 424.
+HashTable().add('dear', 'friend') and HashTable().add('read', 'book') should add both the key-value pairs to the collection at index 412 as a nested dictionary.
+When a key exists in the hash table, the remove() method should remove the given key and its corresponding value from the collection.
+When the 'golf', 'sport' key-value pair exists in the hash table, HashTable().lookup('golf') should return sport.
+When the 'golf', 'sport' key-value pair does not exist in the collection, HashTable().lookup('golf') should return None.
+When the 'fcc' key exists in the collection, HashTable().lookup('cfc') should return None.
+When you add ('rose', 'flower') to the hash table, its collection attribute should look like this: { 441: { 'rose': 'flower' }}.
+When you add a key that hashes to the same value as an existing key, like fcc and cfc, the collection should look like this: { 300: { 'fcc': 'coding', 'cfc':  'chemical' }}.
+"""
