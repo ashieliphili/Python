@@ -1,0 +1,22 @@
+def quick_sort(inp):
+    if len(inp)<=1:
+        return inp
+    less_piv=[]
+    eq_piv=[]
+    more_piv=[]
+    pivot_num=inp[0]
+    for i in inp:
+        if i<pivot_num:
+            less_piv.append(i)
+        if i==pivot_num:
+            eq_piv.append(i)
+        if i>pivot_num:
+            more_piv.append(i)
+    out=quick_sort(less_piv)+eq_piv+quick_sort(more_piv)
+    return out
+
+if "__name__"=="__main":
+    print(quick_sort([20, 3, 14, 1, 5]))
+    print(quick_sort([83, 4, 24, 2]))
+    print(quick_sort([4, 42, 16, 23, 15, 8]))
+    print(quick_sort([87, 11, 23, 18, 18, 23, 11, 56, 87, 56]))
