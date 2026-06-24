@@ -1,0 +1,32 @@
+def verify_card_number(inp):
+    inp=inp.replace(" ","").replace("-","")
+    inp_list=[]
+    inp_list+=inp
+    inp_list.reverse()
+
+    sum_all=0
+    for i in range(1,len(inp_list),2):
+        doubl=int(inp_list[i])*2
+        sum_doubl=0
+        if doubl>9:
+            sum_doubl=doubl-9
+            sum_all+=sum_doubl
+        else:
+            sum_all+=doubl
+
+    for i in range(2,len(inp_list),2):
+        sum_all+=int(inp_list[i])
+
+    sum_all+=int(inp_list[0])
+
+    if sum_all%10==0:
+        return "VALID!"
+    else:
+        return "INVALID!"
+
+"""
+verify_card_number('453914889') should return VALID!.
+verify_card_number('4111-1111-1111-1111') should return VALID!.
+verify_card_number('453914881') should return INVALID!.
+verify_card_number('1234 5678 9012 3456') should return INVALID!
+"""
