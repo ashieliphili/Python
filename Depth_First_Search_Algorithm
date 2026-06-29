@@ -1,0 +1,21 @@
+def dfs(mat,node):
+    visited=[]
+    result=[node]
+
+    while result:
+        current=result.pop()
+        if current not in visited:
+            visited.append(current)
+        
+        for i in range(len(mat)):
+            if mat[current][i]==1 and i not in visited:
+               result.append(i) 
+    return visited
+
+"""
+dfs([[0, 1, 0, 0], [1, 0, 1, 0], [0, 1, 0, 1], [0, 0, 1, 0]], 1) should return a list with 1, 2, 3, and 0.
+dfs([[0, 1, 0, 0], [1, 0, 1, 0], [0, 1, 0, 1], [0, 0, 1, 0]], 3) should return a list with 1, 2, 3, and 0.
+dfs([[0, 1, 0, 0], [1, 0, 1, 0], [0, 1, 0, 0], [0, 0, 0, 0]], 3) should return [3].
+dfs([[0, 1, 0, 0], [1, 0, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]], 3) should return a list with 3 and 2.
+dfs([[0, 1, 0, 0], [1, 0, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]], 0) should return a list with 0 and 1
+"""
