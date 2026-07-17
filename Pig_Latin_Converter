@@ -1,0 +1,27 @@
+def pig_latin(s):
+    vowel="aeiouAEIOU"
+    lis=[]
+    for i in s.split():
+        if i[0] in vowel:
+            lis.append(i+"way")
+        else:
+            d=0
+            for m in i:
+                if m in vowel:
+                    break
+                d+=1
+            new=i[d:]+i[:d]+"ay"
+            if i[0].isupper():
+                new=new.lower().capitalize()
+            lis.append(new)
+    lis=' '.join(lis)
+    return lis
+
+"""
+pig_latin("universe") should return "universeway".
+pig_latin("hello") should return "ellohay".
+pig_latin("hello universe") should return "ellohay universeway".
+pig_latin("Hello universe") should return "Ellohay universeway".
+pig_latin("Pig Latin is fun") should return "Igpay Atinlay isway unfay".
+pig_latin("The quick brown fox jumped over the lazy dog") should return "Ethay uickqay ownbray oxfay umpedjay overway ethay azylay ogday"
+"""
