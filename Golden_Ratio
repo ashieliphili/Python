@@ -1,0 +1,26 @@
+def is_golden_ratio(a, b):
+    maxi=max(a,b)
+    mini=min(a,b)
+
+    golden_ratio=1.618
+    tolerance=0.01
+    x=golden_ratio-tolerance
+    y=golden_ratio+tolerance
+    val=round(maxi/mini,3)
+
+    if x<=val<=y:
+        return True
+    else:
+        return False
+
+"""
+Given two numbers, determine if their ratio approximates the golden ratio.
+Use a golden ratio of 1.618
+Allow a tolerance of 0.01
+1. is_golden_ratio(21, 34) should return True.
+2. is_golden_ratio(15, 20) should return False.
+3. is_golden_ratio(8, 13) should return True.
+4. is_golden_ratio(10, 16) should return False.
+5. is_golden_ratio(1618, 1000) should return True.
+6. is_golden_ratio(88, 55) should return False.
+"""
