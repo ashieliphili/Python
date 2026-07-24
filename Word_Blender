@@ -1,0 +1,27 @@
+def blend_words(word1, word2):
+    i=len(word1)/2
+    j=len(word2)/2
+    if str(i).split(".")[1]=="0":
+        end=int(i)
+        first=word1[:end]
+    else:
+        end=int(i-0.5)
+        first=word1[:end]
+    if str(j).split(".")[1]=="0":
+        start=int(j)
+        second=word2[start:]
+    else:
+        start=int(j-0.5)
+        second=word2[start:]
+    return first+second
+"""
+Given two words, return a new word by combining the first half of the first word with the second half of the second word.
+For odd-length words, the first half is the shorter half.
+
+blend_words("turtle", "toucan") should return "turcan".
+blend_words("chipmunk", "flamingo") should return "chipingo".
+blend_words("falcon", "pelican") should return "falican".
+blend_words("hyena", "iguana") should return "hyana".
+blend_words("scorpion", "gorilla") should return "scorilla".
+blend_words("platypus", "wolverine") should return "platerine"
+"""
