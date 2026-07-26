@@ -1,0 +1,27 @@
+def find_signal(grid):
+    row=len(grid)
+    col=len(grid[0])
+    cell=[]
+    for i in range(row):
+        for j in range(col):
+            if grid[i][j]>0:
+                cell.append([i,j,grid[i][j]])
+
+    for i in range(row):
+        for j in range(col):
+            k=True
+            for r,c,d in cell:
+                dist=max(abs(r-i),abs(c-j))
+                if dist!=d:
+                    k=False
+                    break
+            if k:
+                return [i,j]
+
+"""
+find_signal([[0, 0, 1], [0, 1, 0], [0, 0, 1]]) should return [1, 2].
+find_signal([[0, 2, 0], [1, 0, 0], [0, 0, 1]]) should return [2, 1].
+find_signal([[0, 0, 2, 0], [0, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 1]]) should return [2, 2].
+find_signal([[0, 3, 0, 0, 0], [0, 0, 0, 0, 2], [0, 0, 0, 0, 0], [4, 0, 0, 0, 0], [0, 0, 0, 0, 0]]) should return [3, 4].
+find_signal([[3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 2, 0, 0, 0, 2]]) should return [3, 3].
+"""
