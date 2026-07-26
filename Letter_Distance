@@ -1,0 +1,21 @@
+import string
+def letter_distance(str1, str2):
+    s1=[i for i in str1]
+    s2=[j for j in str2]
+    alphabet = string.ascii_lowercase
+    
+    sum12=0
+    for i in range(len(s1)):
+        k=abs(alphabet.index(s1[i])-alphabet.index(s2[i]))
+        g=26-k
+        sum12+=min(g,k)
+    return sum12
+
+"""
+letter_distance("abc", "bcd") should return 3.
+letter_distance("abc", "xyz") should return 9.
+letter_distance("encrypt", "decrypt") should return 10.
+letter_distance("algorithm", "codeblock") should return 43.
+letter_distance("lobster", "penguin") should return 47.
+letter_distance("alligator", "crocodile") should return 55.
+"""
