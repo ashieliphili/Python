@@ -1,0 +1,12 @@
+def round_to_nearest_multiple(num, multiple):
+    k=[i*multiple for i in list(range(1,10))]
+    r=[]
+    for i in k:
+        r.append(abs(i-num))
+    return k[r.index(min(r))]
+
+round_to_nearest_multiple(5, 3) should return 6.
+round_to_nearest_multiple(17, 4) should return 16.
+round_to_nearest_multiple(43, 5) should return 45.
+round_to_nearest_multiple(38, 11) should return 33.
+round_to_nearest_multiple(93, 12) should return 96.
