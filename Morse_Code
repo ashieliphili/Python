@@ -1,0 +1,22 @@
+def decode_morse(code):
+    codes={".-":"A",	"-...":"B", "-.-.":"C", "-..":"D", ".":"E", "..-.":"F", "--.":"G", "....":"H","..":"I", ".---":"J", "-.-":"K", ".-..":"L", "-.":"N", "--":"M", "---":"O", ".--.":"P", "--.-":"Q", ".-.":"R", "...":"S", "-":"T", "..-":"U", "...-":"V", ".--":"W", "-..-":"X", "-.--":"Y", "--..":"Z"}
+    res=[]
+    words=code.split("   ")
+    for i in words:
+        w=""
+        letter=i.split(" ")
+        for j in letter:
+            w+=codes[j]
+        w=''.join(w)
+        res.append(w)
+        if i!=words[-1]:
+            res.append(" ")
+    return ''.join(res) 
+
+"""
+1. decode_morse("--..") should return "Z".
+2. decode_morse("... --- ...") should return "SOS".
+3. decode_morse("..-. .-. . . -.-. --- -.. . -.-. .- -- .--.") should return "FREECODECAMP".
+4. decode_morse(".... . .-.. .-.. ---   .-- --- .-. .-.. -..") should return "HELLO WORLD".
+5. decode_morse("- .... .   --.- ..- .. -.-. -.-   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. . -..   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --.") should return "THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG".
+"""
