@@ -1,0 +1,34 @@
+def is_balanced(s):
+    vowel="aeiouAEIOU"
+    first=0
+    second=0
+    if len(s)%2==0:
+        r=int(len(s)/2)
+        for i in s[:r-1]:
+            if i in vowel:
+                first+=1
+        for i in s[r-1:]:
+            if i in vowel:
+                second+=1
+    else:
+        r=int((len(s)/2)+0.5)
+        for i in s[:r-1]:
+            if i in vowel:
+                first+=1
+        for i in s[r:]:
+            if i in vowel:
+                second+=1
+    return first==second
+
+"""
+Given a string, determine whether the number of vowels in the first half of the string is equal to the number of vowels in the second half.
+If there's an odd number of characters in the string, ignore the center character.
+
+1. is_balanced("racecar") should return True.
+2. is_balanced("Lorem Ipsum") should return True.
+3. is_balanced("Kitty Ipsum") should return False.
+4. is_balanced("string") should return False.
+5. is_balanced(" ") should return True.
+6. is_balanced("abcdefghijklmnopqrstuvwxyz") should return False.
+7. is_balanced("123A#b!E&*456-o.U") should return True.
+"""
