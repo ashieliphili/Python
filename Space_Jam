@@ -1,0 +1,17 @@
+def space_jam(s):
+    s=s.upper().replace(" ","")
+    res=""
+    for i in range(len(s)):
+        if i==len(s)-1:
+            res+=s[i]
+        else:
+            res+=s[i]+"  "
+    return ''.join(res)
+
+"""
+space_jam("freeCodeCamp") should return "F  R  E  E  C  O  D  E  C  A  M  P".
+space_jam("   free   Code   Camp   ") should return "F  R  E  E  C  O  D  E  C  A  M  P".
+space_jam("Hello World?!") should return "H  E  L  L  O  W  O  R  L  D  ?  !".
+space_jam("C@t$ & D0g$") should return "C  @  T  $  &  D  0  G  $".
+space_jam("allyourbase") should return "A  L  L  Y  O  U  R  B  A  S  E".
+"""
