@@ -1,0 +1,14 @@
+def factorial(n):
+    factor=1
+    if n==0 or n==1:
+        return factor
+    else:
+        for i in range(n,1,-1):
+            factor*=i
+        return factor
+
+"""
+factorial(0) should return 1.
+factorial(5) should return 120.
+factorial(20) should return 2432902008176640000.
+"""
