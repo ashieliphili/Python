@@ -1,0 +1,14 @@
+def mile_pace(miles, duration):
+    mins=int(duration.split(":")[0])
+    secs=int(duration.split(":")[1])
+    total_sec=int((mins*60+secs)/miles)
+    pace_m=total_sec//60
+    pace_s=total_sec%60
+    return f"{pace_m:02d}:{pace_s:02d}"
+
+"""
+mile_pace(3, "24:00") should return "08:00".
+mile_pace(1, "06:45") should return "06:45".
+mile_pace(2, "07:00") should return "03:30".
+mile_pace(26.2, "120:35") should return "04:36".
+"""
