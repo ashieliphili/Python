@@ -1,0 +1,24 @@
+import string
+def decode(message, shift):
+    decode=[]
+    lower=string.ascii_lowercase*2
+    upper=string.ascii_uppercase*2
+    if shift>0:
+        shifted=-shift
+    elif shift<0:
+        shifted=-shift
+    for i in range(len(message)):
+        if message[i].islower():
+            decode.append(lower[lower.index(message[i])+shifted])
+        elif message[i].isupper():
+            decode.append(upper[upper.index(message[i])+shifted])
+        else:
+            decode.append(message[i])
+    return ''.join(decode)
+
+"""
+decode("Xlmw mw e wigvix qiwweki.", 4) should return "This is a secret message."
+decode("Byffi Qilfx!", 20) should return "Hello World!"
+decode("Zqd xnt njzx?", -1) should return "Are you okay?"
+decode("oannLxmnLjvy", 9) should return "freeCodeCamp"
+"""
