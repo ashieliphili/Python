@@ -1,0 +1,25 @@
+def is_unnatural_prime(n):
+    if n==1 or n==-1 or n==0:
+        check=False
+    elif abs(n)>1:
+        check=True
+        for i in range(2,abs(n)+1):
+            if abs(n)%i==0 and abs(n)!=i:
+                check=False
+                break
+    if check:
+        return check
+    else:
+        return check
+
+"""
+is_unnatural_prime(1) should return False.
+is_unnatural_prime(-1) should return False.
+is_unnatural_prime(19) should return True.
+is_unnatural_prime(-23) should return True.
+is_unnatural_prime(0) should return False.
+is_unnatural_prime(97) should return True.
+is_unnatural_prime(-61) should return True.
+is_unnatural_prime(99) should return False.
+is_unnatural_prime(-44) should return False.
+"""
