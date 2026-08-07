@@ -1,0 +1,19 @@
+def burn_candles(candles, leftovers_needed):
+    burn=candles
+    total=candles
+    while burn>=leftovers_needed:
+        new=burn//leftovers_needed
+        left=burn%leftovers_needed
+        total+=new
+        burn=new+left
+    return total
+
+"""
+Given an integer representing the number of candles you start with, and an integer representing how many burned candles it takes to create a new one, 
+return the number of candles you will have used after creating and burning as many as you can.
+burn_candles(7, 2) should return 13
+burn_candles(10, 5) should return 12
+burn_candles(20, 3) should return 29
+burn_candles(17, 4) should return 22
+burn_candles(2345, 3) should return 3517
+"""
