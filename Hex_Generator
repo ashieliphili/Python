@@ -1,0 +1,23 @@
+import random
+def generate_hex(color):
+    if color not in ["red","green","blue"]:
+        return "Invalid color"
+    dom_val=random.randint(2,255)
+    sec1_val=random.randint(0,dom_val-1)
+    sec2_val=random.randint(0,dom_val-1)
+
+    if color=="red":
+        r,g,b=dom_val,sec1_val,sec2_val
+    elif color=="green":
+        r,g,b=sec1_val,dom_val,sec2_val
+    elif color=="blue":
+        r,g,b=sec1_val,sec2_val,dom_val
+
+    return f"{r:02X}{g:02X}{b:02X}"
+
+"""
+Given a named CSS color string, generate a random hexadecimal (hex) color code that is dominant in the given color.
+The function should handle "red", "green", or "blue" as an input argument.
+If the input is not one of those, the function should return "Invalid color".
+The function should return a random six-character hex color code where the input color value is greater than any of the others.
+"""
