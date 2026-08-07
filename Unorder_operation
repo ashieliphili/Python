@@ -1,0 +1,25 @@
+def evaluate(numbers, operators):
+    curr=numbers[0]
+    for i in range(1,len(numbers)):
+        op=operators[(i-1)%len(operators)]
+        nex=numbers[i]
+
+        if op=="+":
+            curr+=nex
+        elif op=="-":
+            curr-=nex
+        elif op=="*":
+            curr*=nex
+        elif op=="/":
+            curr/=nex
+        elif op=="%":
+            curr%=nex
+    return curr
+
+"""
+evaluate([5, 6, 7, 8, 9], ['+', '-']) should return 3
+evaluate([17, 61, 40, 24, 38, 14], ['+', '%']) should return 38
+evaluate([20, 2, 4, 24, 12, 3], ['*', '/']) should return 60
+evaluate([11, 4, 10, 17, 2], ['*', '*', '%']) should return 30
+evaluate([33, 11, 29, 13], ['/', '-']) should return -2
+"""
